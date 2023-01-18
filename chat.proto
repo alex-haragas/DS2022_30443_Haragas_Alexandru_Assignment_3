@@ -29,7 +29,7 @@ message ReceiveMsgRequest {
 
 service ChatService {
     rpc join(User) returns (JoinResponse) {}
-    rpc sendMsg(ChatMessage) returns (Empty) {}
+    rpc sendMsg(ChatMessage) returns (JoinResponse) {}
     rpc receiveMsg(Empty) returns (stream ChatMessage) {}
     rpc getAllUsers(Empty) returns (UserList) {}
 }

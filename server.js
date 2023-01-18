@@ -33,7 +33,16 @@ const sendMsg = (call, callback) => {
   observers.forEach((observer) => {
     observer.call.write(chatObj);
   });
-  callback(null, {});
+  let obj = usersInChat.findIndex(o => o.name === chatObj.to)
+  if(obj!=-1){
+    console.log("found")
+    callback(null, { error: 0,msg: "found" });
+  }
+  else{
+    console.log("not found")
+
+    callback(null,  { error: 0,msg: "not found" });
+  }
 };
 
 const getAllUsers = (call, callback) => {
